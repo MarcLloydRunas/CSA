@@ -1,0 +1,371 @@
+/*sidebar*/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+:root {
+    --header-height: 3rem;
+    --nav-width: 68px;
+    --first-color: #4723D9;
+    --first-color-light: #AFA5D9;
+    --white-color: #F7F6FB;
+    --body-font: 'Nunito', sans-serif;
+    --normal-font-size: 1rem;
+    --z-fixed: 100
+}
+
+*, ::before, ::after {
+    box-sizing: border-box
+}
+
+.navbarBody {
+    position: relative;
+    margin: var(--header-height) 0 0 0;
+    padding: 0 1rem;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    transition: .5s;
+    background-color: #28282C;
+    padding: 15px 15px 15px 0px;
+}
+
+a {
+    text-decoration: none
+}
+
+.bx.bx-menu {
+    color: #2bcde9;
+}
+
+.btn.btn-primary {
+    background-color: #1c8397!important;
+    border-color: #0c3942;
+}
+
+.header {
+    width: 100%;
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background-color: #28282B;
+    z-index: var(--z-fixed);
+    transition: .5s
+}
+
+.sidebarHead {
+    box-shadow: black 0px 2px 4px 0px;
+}
+
+.header_toggle {
+    color: var(--first-color);
+    font-size: 1.5rem;
+    cursor: pointer
+}
+
+.header_img {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden
+}
+
+    .header_img img {
+        width: 40px
+    }
+
+.l-navbar {
+    position: fixed;
+    top: 0;
+    left: -30%;
+    width: var(--nav-width);
+    height: 100vh;
+    background:  #2C2C2C;
+    padding: .5rem 1rem 0 0;
+    transition: .5s;
+    border-style: none solid none none;
+    border-color: #2bcde9;
+    box-shadow: black 0px 2px 4px 2px;
+    z-index: var(--z-fixed)
+}
+
+.nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden
+}
+
+.nav_logo, .nav_link {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    column-gap: 1rem;
+    padding: .5rem 0 .5rem 1.5rem
+}
+
+.nav_logo {
+    margin-bottom: 2rem
+}
+
+.nav_logo-icon {
+    font-size: 1.25rem;
+    color: var(--white-color)
+}
+
+.nav_logo-name {
+    color: var(--white-color);
+    font-weight: 700
+}
+
+.nav_link {
+    position: relative;
+    color: var(--first-color-light);
+    margin-bottom: 1.5rem;
+    transition: .3s
+}
+
+    .nav_link:hover {
+        color: var(--white-color)
+    }
+
+.nav_icon {
+    font-size: 1.25rem
+}
+
+.show {
+    left: 0
+}
+
+.body-pd {
+    padding-left: calc(var(--nav-width) + 1rem)
+}
+
+.active_nav {
+    color: var(--white-color)
+}
+
+    .active_nav::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 2px;
+        height: 32px;
+        background-color: var(--white-color)
+    }
+
+.height-100 {
+    height: 100vh
+}
+
+@media screen and (min-width: 768px) {
+    .navbarBody {
+        margin: calc(var(--header-height) + 1rem) 0 0 0;
+        padding-left: calc(var(--nav-width) + 2rem)
+    }
+
+    .header {
+        height: calc(var(--header-height) + 1rem);
+        padding: 0 2rem 0 calc(var(--nav-width) + 2rem)
+    }
+
+    .header_img {
+        width: 40px;
+        height: 40px
+    }
+
+        .header_img img {
+            width: 45px
+        }
+
+    .l-navbar {
+        left: 0;
+        padding: 1rem 1rem 0 0
+    }
+
+    .show {
+        width: calc(var(--nav-width) + 156px)
+    }
+
+    .body-pd {
+        padding-left: calc(var(--nav-width) + 188px)
+    }
+}
+
+/*calendar*/
+.btn-info.text-light:hover,
+.btn-info.text-light:focus {
+    background: #000;
+}
+table, tbody, td, tfoot, th, thead, tr {
+    border-color: #36454F !important;
+    border-style: solid;
+    border-width: 1px !important;
+}
+#calendar {
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #2bcde9;
+    padding: 10px;
+}
+
+.appointmentBody{
+    display: block;
+    position: relative;
+    background-color: #2C2C2C;
+    box-shadow: black 0px 2px 4px 0px;
+    color: white;
+    border-color: #FF2BCDE9;
+    border-radius: 8px;
+    padding: 9px 0px 11px 0px;
+}
+
+@media screen and (max-width: 770px) {
+    .schedForm {
+        margin-top: 2%;  
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    button.fc-today-button.btn.btn-primary {
+        margin: 4% 0% 0% 1%!important;
+        width: 70px;
+    }
+    button.btn.btn-primary.btn-sm {
+        margin-top: 2%;
+    }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="datetime-local"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="text"]:active,
+input[type="email"]:active,
+input[type="password"]:active,
+input[type="date"]:active,
+input[type="datetime-local"]:active,
+select option,
+#time_sched,
+textarea.form-control:hover,
+textarea.form-control:focus,
+textarea.form-control:active,
+textarea.form-control {
+    background-color: #454545;
+    border-color: #454545;
+    color: white;
+}
+
+.cardt {
+    border-style: solid;
+    border-color: #2bcde9;
+    border-radius: 10px;
+    padding: 10px;
+}
+.logo {
+    height: 23px;
+    width: auto;
+}
+/*modal*/
+
+.modal {
+  position: absolute;
+  float: left;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+}
+
+.modal-backdrop {
+   background-color: transparent;
+}
+
+.modal-content {
+    background-color: #1D484B;
+    color: white;
+}
+
+.fc-list-day-cushion {
+    background: #2C2C2C!important;
+}
+
+a.meeting_link_tag {
+    color: #2bcde9;
+}
+
+/*profile*/
+
+.profileBody, .logBody {
+    display: block;
+    position: relative;
+    background-color: #2C2C2C;
+    box-shadow: black 0px 2px 4px 0px;
+    color: white;
+    border-color: #FF2BCDE9;
+    border-radius: 8px;
+    padding: 20px;
+    height: 680px;
+}
+
+.topper-profile, .lower-profile {
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #2bcde9;
+    padding: 15px;
+    margin: 12px 12px 0px 12px;
+}
+
+.profilePic {
+    border-radius: 12px;
+    height: 100px;
+    width: auto;
+}
+
+.navprof {
+    border-style: solid;
+    border-radius: 50px;
+    border-color: #2bcde9;
+}
+
+.profpad {
+    padding-left: 30px;
+}
+
+@media screen and (max-width: 620px) {
+    .profpad {
+        padding-left: -30px;
+        margin-left: -19px;
+    }
+}
+/*table*/
+
+.table-responsive {
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #2bcde9;
+}
+
+tbody {
+    color: white;
+}
+
+.bttnhead {
+    float: right;
+}
+
+#icon-bttn {
+    position:relative;
+    top: calc(50% - 10px);
+}

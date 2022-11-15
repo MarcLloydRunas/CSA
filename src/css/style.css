@@ -1,0 +1,82 @@
+/*home page*/
+.homeForms {
+	padding: 20px;
+	border-style: solid;
+	border-radius: 10px;
+	border-width: 1px;
+	border-color: #2bcde9;
+	margin: 10px 20px;
+}
+
+.btn.btn-primary {
+    background-color: #1c8397!important;
+    border-color: #0c3942;
+}
+.home-navbar {
+	border-style: none none solid none;
+	border-width: 1px;
+	border-color: #2bcde9;
+}
+
+.loginOpen {
+	border: none;
+	background: rgba(76, 175, 80, 0.0);
+}
+
+/*theme color*/
+body {
+	background: #2C2C2C;
+	color: white;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="text"]:active,
+input[type="email"]:active,
+input[type="password"]:active,
+input[type="date"]:active,
+select option, #sex,
+ul.dropdown-menu,
+.dropdown-item {
+	background-color: #454545;
+	border-color: #454545;
+	color: white;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+nav {
+	box-shadow: 0 4px 8px -4px #191919;
+}
+
+.logo {
+	height: 35px;
+	width: auto;
+}
+
+/*animation*/
+
+img#animage {
+	bottom: 16px;
+  	position: relative;
+  	animation-name: loadpage;
+  	animation-duration: 0.7s;
+  	animation-iteration-count: 1;
+  	animation-direction: alternate;  
+}
+
+@keyframes loadpage {
+  	0%   {opacity:0.0; bottom:0px;}
+  	100% {opacity:1.0; bottom:16px;}
+}
