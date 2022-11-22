@@ -351,7 +351,7 @@ a.meeting_link_tag {
 }
 
 .profpad {
-    padding-left: 30px;
+    padding-left: 100px;
 }
 
 @media screen and (max-width: 620px) {
@@ -395,4 +395,29 @@ ul.pagination {
 li.paginate_button.page-item.active:hover {
     background: #2bcde9!important;
     border-radius: 10px;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  padding-left: 130px;
+}
+
+.upld_label {
+  border: 2px solid #2bcde9;
+  color: white;
+  background-color: gray;
+  padding: 8px 8px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 15px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
 }

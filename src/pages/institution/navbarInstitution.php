@@ -38,12 +38,26 @@ try {
     echo $delete_past . "<br>" . $error->getMessage();
 }
 
+try {
+
+    $profile_pic="SELECT file_name FROM profile_image WHERE (id_number = '$acc_id_number')";
+
+    $prof_stmt = $pdo->prepare($profile_pic);
+    $prof_stmt->execute();
+    $img_result = $prof_stmt->fetchAll();
+
+} catch(PDOException $error){
+    echo $profile_pic . "<br>" . $error->getMessage();
+}
+
 require "./components/header.php";
 ?>
 <div id="body-pd" class="navbarBody">
     <header class="sidebarHead header" id="header">
         <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-        <div class="header_img"> <img class="navprof" src="../../../img/profile.jpg" alt=""> </div>
+        <?php foreach ($img_result as $img_row) : ?>
+            <div class="header_img"> <img class="navprof" src="<?php echo './upload/'.$img_row['file_name']?>" alt=""> </div>
+        <?php endforeach;?>
     </header>
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">

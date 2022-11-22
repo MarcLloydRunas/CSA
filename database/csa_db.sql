@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2022 at 11:16 AM
+-- Generation Time: Nov 22, 2022 at 07:37 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -103,6 +103,29 @@ INSERT INTO `institution` (`id`, `institution_id`, `institution_name`, `institut
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `profile_image`
+--
+
+CREATE TABLE `profile_image` (
+  `id_number` varchar(255) NOT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `file_type` varchar(255) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `date_uploaded` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `profile_image`
+--
+
+INSERT INTO `profile_image` (`id_number`, `file_name`, `file_type`, `location`, `date_uploaded`) VALUES
+('1107319787', 'photo_6185739172921323311_y.jpg', 'image/jpeg', '../upload/photo_6185739172921323311_y.jpg', '2022-11-22 00:00:00'),
+('2781083719', 'kisspng-university-of-the-cordilleras-saint-louis-universi-trust-seal-5b4c305bd57447.2248177915317197718743.jpg', 'image/jpeg', '../upload/kisspng-university-of-the-cordilleras-saint-louis-universi-trust-seal-5b4c305bd57447.2248177915317197718743.jpg', '2022-11-22 00:00:00'),
+('3284010490', 'drinking.png', 'image/png', '../upload/drinking.png', '2022-11-22 00:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `schedule_list`
 --
 
@@ -118,14 +141,6 @@ CREATE TABLE `schedule_list` (
   `institution_code` varchar(255) NOT NULL,
   `date_added` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `schedule_list`
---
-
-INSERT INTO `schedule_list` (`id`, `student_id`, `title`, `description`, `start_datetime`, `end_datetime`, `counselor_id`, `meeting_link`, `institution_code`, `date_added`) VALUES
-(52, '3284010490', 'Grade', 'Grades this semester', '2022-11-10 08:00:00', '2022-11-10 10:00:00', '1107319787', 'https://meet.google.com/waw-unzx-qsz', '', '2022-11-06 18:03:12'),
-(53, '599351617', 'Bullying', 'Victim of Bullying LOL', '2022-11-09 13:00:00', '2022-11-09 15:00:00', '1107319787', 'https://meet.google.com/fwo-sepq-niw', '', '2022-11-06 18:04:21');
 
 -- --------------------------------------------------------
 
@@ -155,7 +170,8 @@ CREATE TABLE `student_account` (
 INSERT INTO `student_account` (`id`, `student_id`, `first_name`, `middle_name`, `last_name`, `suffixes`, `birth_date`, `sex`, `institution_code`, `student_pass`, `account_type`, `date_added`) VALUES
 (8, '3284010490', 'Rachel', 'Rachel', 'Raven', '', '1998-11-01', 'female', '63677f13580ff', '$2y$10$AM3JQvGYgDEOOlQPQemIoenrTO3hR0oV6GACQbAhIdPh70LXSUvWW', 'student', '2022-11-06 17:58:23'),
 (9, '599351617', 'Robin', 'Robin', 'Grayson', '', '1996-03-09', 'male', '63677f13580ff', '$2y$10$UtmGqmSZmwj13ua5/i0Y3OZ8uboojABV5qD8GhMZkBOnMhC54iTX6', 'student', '2022-11-06 17:59:56'),
-(10, '2040514017', 'Barry', 'Barry', 'Allen', '', '1990-09-18', 'male', '63677fc5a82ad', '$2y$10$4/4y6xH9IfxVI4g8PQyp9.a9TvZzuzrYz2dIXw8HZbRCBnST/Z22i', 'student', '2022-11-06 18:01:14');
+(10, '2040514017', 'Barry', 'Barry', 'Allen', '', '1990-09-18', 'male', '63677fc5a82ad', '$2y$10$4/4y6xH9IfxVI4g8PQyp9.a9TvZzuzrYz2dIXw8HZbRCBnST/Z22i', 'student', '2022-11-06 18:01:14'),
+(11, '3952784298', 'Marc', 'Marc', 'Runas', '', '2022-11-02', 'male', '63677f13580ff', '$2y$10$7w9TFJFxTsTw5pm7nL7u0ODp3tyUcS0RKoznn8Gltt1rGDNNJOK6q', 'student', '2022-11-22 13:43:15');
 
 --
 -- Indexes for dumped tables
@@ -181,6 +197,12 @@ ALTER TABLE `institution`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `institution_id` (`institution_id`),
   ADD UNIQUE KEY `institution_code` (`institution_code`);
+
+--
+-- Indexes for table `profile_image`
+--
+ALTER TABLE `profile_image`
+  ADD UNIQUE KEY `id_number` (`id_number`);
 
 --
 -- Indexes for table `schedule_list`
@@ -209,7 +231,7 @@ ALTER TABLE `activity_log`
 -- AUTO_INCREMENT for table `counselor`
 --
 ALTER TABLE `counselor`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `institution`
@@ -227,7 +249,7 @@ ALTER TABLE `schedule_list`
 -- AUTO_INCREMENT for table `student_account`
 --
 ALTER TABLE `student_account`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

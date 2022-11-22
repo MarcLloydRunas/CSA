@@ -16,13 +16,22 @@ try {
     <div class="profileBody">
         <h1>Profile</h1>
         <div class="row topper-profile">
-        <?php foreach ($user_result as $user_row) : ?>
+        <?php foreach ($img_result as $img_row) : ?>
             <div class="col-md-1">
-                <img src="../../../img/profile.jpg" class="profilePic" alt="Profile Picture">
+                <img src="<?php echo './upload/'.$img_row['file_name']?>" class="profilePic" alt="Profile Picture">
             </div>
+        <?php endforeach;?>
+        <?php foreach ($user_result as $user_row) : ?>
             <div class="col-md-9 profpad">
                 <h2><?php echo $user_row['institution_name']; ?></h2>
                 <h4><?php echo $user_row['institution_id']?></h4>
+            </div>
+            <div class="col upload-btn-wrapper float-end ">
+                <form method='post' action='./php/upload_prof.php'
+                    enctype='multipart/form-data'>
+                    <input type='file' name='file' id='upld' required onchange="form.submit()" value="ho" />
+                    <label class="upld_label" for="upld"><i class="btn bx bx-upload"></i></label>
+                </form>
             </div>
         </div>
         <br/>
